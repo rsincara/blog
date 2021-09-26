@@ -1,14 +1,20 @@
 import React from 'react'
-import About from "./About";
-import RecentPosts from "./RecentPosts";
-import FeaturedWorks from "./FeaturedWorks";
+import Home from "./Home";
+import {Route, Switch} from "react-router-dom";
+import Works from "./Works";
+import Blog from "./Blog";
+import Contact from "./Contact";
 
 const Main = () => {
     return (
         <main className='main'>
-            <About />
-            <RecentPosts />
-            <FeaturedWorks />
+            <Switch>
+                <Route exact path={'/'} component={Home} />
+                <Route exact path={'/blog'} component={Blog} />
+                <Route exact path={'/works'} component={Works} />
+                <Route path={'/works/:id'} component={Works} />
+                <Route exact path={'/contact'} component={Contact} />
+            </Switch>
         </main>
     )
 }

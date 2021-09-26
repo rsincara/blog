@@ -1,14 +1,16 @@
 import React from 'react'
+import {NavLink} from "react-router-dom";
+
 const FeatureWork = (props) => {
-    return(
-        <div className='fworks__work'>
-            <a href='#' className='work-image-wrapper'>
-                <img className='work__image' src={props.img} alt='theme picture'  />
-            </a>
-            <div className="work__content">
-                <a href='#' className='work__title' > {props.theme} </a>
-                <span className='work__year'>{props.year}</span> <span className='work__section'>{props.section}</span>
-                <p className='work__introduction text'>{props.inroduction}</p>
+    return (
+        <div className={`fwork ${props.location === undefined ? "" : `location-${props.location}`}`}>
+            <NavLink to={`/works/${props.id}`} className='fwork-image-wrapper'>
+                <img className='fwork__image' src={props.img} alt='theme picture'/>
+            </NavLink>
+            <div className="fwork__content">
+                <NavLink to={`/works/${props.id}`} className='fwork__title'> {props.theme} </NavLink>
+                <span className='fwork__year'>{props.year}</span> <span className='work__section'>{props.section}</span>
+                <p className='fwork__introduction text'>{props.inroduction}</p>
             </div>
         </div>
     )
