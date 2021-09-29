@@ -3,15 +3,22 @@ import './style.css'
 import Header from "./Components/Header";
 import Main from "./Components/Main";
 import Footer from "./Components/Footer";
+import {connect} from "react-redux";
 
-const App = () => {
+const App = (props) => {
     return (
         <div>
-            <Header />
+            <Header  />
             <Main />
             <Footer />
         </div>
     )
 }
 
-export default App;
+
+const mapStateToProps = state =>{
+    return {
+        theme: state.theme
+    }
+}
+export default connect(mapStateToProps)(App);

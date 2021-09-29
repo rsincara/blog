@@ -5,7 +5,9 @@
 @dark-color: #21243D;
 @recent-posts-color: #EDF7FA;
 @light-color: #8695A4;
-@mobile: ~"(max-width: 425px)";
+//@mobile: ~"(max-width: 425px)";
+@mobile: ~"(orientation: portrait)";
+
 
 * {
   box-sizing: border-box;
@@ -13,7 +15,6 @@
   padding: 0;
   font-family: 'Heebo', sans-serif;
 }
-
 
 .header {
   margin: auto;
@@ -567,5 +568,17 @@
 
   &__image {
     max-width: 100%;
+  }
+}
+
+.theme-dark{
+  background-color: #dedede;
+
+  .recent-posts-wrapper{
+    background-color: #dedede;
+  }
+
+  .recent-posts__post{
+    background-color: #dedede;
   }
 }
