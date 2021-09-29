@@ -11,7 +11,7 @@ const Blog = (props) => {
     const onBtnClick = (e) => {
         e.preventDefault();
         let article = {
-            date: new Date(),
+            date: (new Date()).toString(),
             theme: getValueBySelector('#theme'),
             section: getValueBySelector('#section'),
             title: getValueBySelector('#title'),
@@ -48,9 +48,9 @@ const Blog = (props) => {
                 </button>
             </form>
 
-            {allArticles.map(post => <RecentPost title={post.title} date={post.title} section={post.section}
-                                                 theme={post.theme}
-                                                 text={post.text}/>)}
+            {props.articles.isFetching ? 'Загрузка...' : allArticles.map(post => <RecentPost title={post.title} date={post.date} section={post.section}
+                                                                                             theme={post.theme}
+                                                                                             text={post.text}/>)}
 
         </div>
     );

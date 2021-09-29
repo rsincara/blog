@@ -1,4 +1,5 @@
-import {CREATE_ARTICLE} from "../Actions/createArticleAction";
+import {CREATE_ARTICLE_REQUEST} from "../Actions/createArticleAction";
+import {CREATE_ARTICLE_SUCCESS} from "../Actions/createArticleAction";
 
 const initialState = {
     articles: [
@@ -30,14 +31,16 @@ const initialState = {
             section:'Web development',
             text: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'
         }
-
-    ]
+    ],
+    isFetching: false
 }
 
 export function articleReducer(state = initialState, action) {
     switch (action.type) {
-        case (CREATE_ARTICLE):
-            return {...state, articles:[...state.articles, action.payload]}
+        case CREATE_ARTICLE_REQUEST:
+            return {...state, articles:state.articles, isFetching: true}
+        case CREATE_ARTICLE_SUCCESS:
+            return {...state, articles:[...state.articles, action.payload], isFetching: false }
         default:
             return state;
     }
